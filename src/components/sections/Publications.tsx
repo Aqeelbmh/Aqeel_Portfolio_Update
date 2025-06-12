@@ -24,11 +24,21 @@ const Publications = () => {
       title: 'DIABETES PREDICTION MACHINE LEARNING-BASED DIABETES PREDICTION APP USING RANDOM FOREST ALGORITHM',
       authors: 'Mohamed Hakeel',
       journal: 'JATI (Jurnal Mahasiswa Teknik Informatika)',
-      date: '2024-01-04',
+      date: '2025-01-04',
       description: 'Diabetes is a chronic metabolic condition that causes increased blood glucose levels in millions of people worldwide. Early detection and quick action are critical for controlling this illness and preventing consequences. This work describes creating a user-friendly smartphone application for diabetes prediction using the Random Forest algorithm, a powerful machine-learning technique.',
       doi: 'https://doi.org/10.36040/jati.v9i1.12654',
       link: 'https://doi.org/10.36040/jati.v9i1.12654',
     },
+    {
+      title: 'SYMPTOM-BASED DISEASE PREDICTION USING MACHINE LEARNING',
+      authors: 'Mohamed Hakeel, Aji Primajaya, E.Haodudin Nurfikli',
+      journal: 'JATI (Jurnal Mahasiswa Teknik Informatika)',
+      date: '2025-05-25',
+      description: 'There are now more opportunities to increase diagnostic accessibility and accuracy thanks to the application of machine learning (ML) in healthcare, especially in environments with limited resources',
+      doi: ' https://doi.org/10.36040/jati.v9i4.14087',
+      link: ' https://doi.org/10.36040/jati.v9i4.14087',
+    },
+
     // Add more publications as needed
   ];
 
