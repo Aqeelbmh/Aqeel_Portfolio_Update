@@ -87,7 +87,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="space-y-6"
             >
-              <h1 className="relative text-6xl md:text-7xl font-extrabold mb-6 heading-neon glitch" data-text="Mohamed Hakeel">
+              <h1 className="relative text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 heading-neon glitch" data-text="Mohamed Hakeel">
                 Mohamed Hakeel
               </h1>
               <motion.div
@@ -96,12 +96,12 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="h-20 md:h-24 flex items-start justify-start"
               >
-                <span className="text-2xl md:text-3xl font-medium heading-neon">
+                <span className="text-xl sm:text-2xl md:text-3xl font-medium heading-neon">
                   {text}
                   <span className="animate-blink">|</span>
                 </span>
               </motion.div>
-              <p className="text-lg text-slate-300 mb-8 max-w-2xl leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-300 mb-8 max-w-2xl leading-relaxed">
                 Cybersecurity Analyst and Data Scientist transforming complex data into actionable insights while ensuring robust digital security. Full-stack developer and IoT architect passionate about creating secure, efficient, and user-friendly solutions that drive innovation.
               </p>
             </motion.div>
@@ -215,7 +215,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex-1 flex justify-center"
           >
-            <div className="relative w-80 h-80 md:w-96 md:h-96 group">
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-96 md:h-96 group">
               {/* Enhanced main frame with multiple gradient borders and glow effects */}
               <div className="absolute inset-0 rounded-full p-1.5 bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] animate-gradient-x">
                 <div className="w-full h-full rounded-full bg-[#0b0f13] relative overflow-hidden scanline">

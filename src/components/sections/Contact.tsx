@@ -45,7 +45,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-extrabold text-center mb-16 heading-neon"
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-12 md:mb-16 heading-neon"
           >
             Get in Touch
           </motion.h2>
@@ -139,7 +139,7 @@ const Contact = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-[#0b0f13] rounded-2xl p-8 border border-cyan-400/20"
+              className="bg-[#0b0f13] rounded-2xl p-6 md:p-8 border border-cyan-400/20"
             >
               <form
                 action="https://formspree.io/f/mrbqenjn"

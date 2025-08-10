@@ -55,6 +55,15 @@ html.dark body {
   z-index: 60;
 }
 
+/* Mobile/touch: simplify effects for performance and clarity */
+@media (hover: none), (pointer: coarse) {
+  .neon-cursor { display: none; }
+  .glitch::before, .glitch::after { display: none; }
+  .scanline::after { display: none; }
+  .shadow-neon { box-shadow: none !important; }
+  .shadow-neon-strong { box-shadow: none !important; }
+}
+
 /* Glitch text effect utility */
 .glitch {
   position: relative;
@@ -133,6 +142,13 @@ html.dark body {
 .cyber-grid-bg {
   background-image: linear-gradient(rgba(0,229,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.05) 1px, transparent 1px);
   background-size: 36px 36px, 36px 36px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient-x { animation: none !important; }
+  .animate-blink { animation: none !important; }
+  .scanline::after { animation: none !important; }
 }
 
 /* Neon blob presets (replace inline styles) */

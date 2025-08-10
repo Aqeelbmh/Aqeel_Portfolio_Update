@@ -116,7 +116,7 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden absolute right-0 p-2 rounded-lg text-cyan-300 hover:text-white hover:bg-cyan-400/10 transition-colors duration-300"
+            className="md:hidden absolute right-3 p-2 rounded-md text-cyan-300 hover:text-white hover:bg-cyan-400/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
             aria-label="Toggle menu"
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">
@@ -147,7 +147,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                     onClick={() => handleNavClick(item.to)}
-                    className={`p-3 rounded-md text-sm font-medium text-center transition-all duration-300 relative group ${
+                    className={`p-3 rounded-md text-base md:text-sm font-medium text-center transition-all duration-300 relative group ${
                       activeSection === item.to
                         ? 'text-white bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] shadow-neon'
                         : 'text-slate-300 hover:bg-cyan-400/10 hover:text-neon'

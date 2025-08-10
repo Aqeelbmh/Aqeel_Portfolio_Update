@@ -131,7 +131,7 @@ const Skills = () => {
           {/* Enhanced Skills Display */}
           {activeCategory === 'all' ? (
             // Show all categories in a grid
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {categories.filter(cat => cat.id !== 'all').map((category) => (
                 <motion.div
                   key={category.id}
@@ -176,7 +176,7 @@ const Skills = () => {
             </div>
           ) : (
             // Show single category in a grid
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {filteredSkills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
