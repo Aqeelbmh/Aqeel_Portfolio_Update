@@ -71,7 +71,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-[100] transition-all duration-300 ${
         scrolled 
           ? 'bg-[#0b0f13]/80 backdrop-blur-xl border-b border-cyan-400/20 shadow-neon' 
           : 'bg-transparent'
@@ -116,6 +116,9 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             onClick={() => setIsOpen(!isOpen)}
+            type="button"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
             className="md:hidden absolute right-3 p-2 rounded-md text-cyan-300 hover:text-white hover:bg-cyan-400/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
             aria-label="Toggle menu"
           >
@@ -139,7 +142,7 @@ const Navbar = () => {
             className="md:hidden bg-[#0b0f13]/95 backdrop-blur-xl border-t border-cyan-400/20"
           >
             <div className="container mx-auto px-4 py-4">
-              <div className="grid grid-cols-2 gap-2">
+          <div id="mobile-menu" className="grid grid-cols-2 gap-2">
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.to}
