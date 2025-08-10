@@ -160,7 +160,7 @@ const References = () => {
 
   if (isLoading) {
     return (
-      <section id="references" className="py-12 md:py-20 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+      <section id="references" className="py-12 md:py-20 bg-[#0b0f13] cyber-grid-bg">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto animate-pulse">
             <div className="h-8 md:h-12 bg-gray-200 dark:bg-gray-700 rounded w-32 md:w-48 mx-auto mb-8 md:mb-12" />
@@ -181,7 +181,7 @@ const References = () => {
   return (
     <section 
       id="references" 
-      className="py-12 md:py-20 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800"
+      className="py-12 md:py-20 bg-[#0b0f13] cyber-grid-bg"
     >
       <div className="container mx-auto px-4">
         <motion.div
@@ -191,7 +191,7 @@ const References = () => {
           transition={{ duration: 0.6 }}
           className="max-w-6xl mx-auto"
         >
-          <h2 className="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <h2 className="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 heading-neon">
             References
           </h2>
 
@@ -216,48 +216,48 @@ const References = () => {
                 >
                   <div className="w-full md:w-1/3">
                     <div className="relative w-32 h-32 md:w-48 md:h-48 mx-auto">
-                      <div className="w-full h-full rounded-full bg-gradient-to-br from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 flex items-center justify-center">
-                        <span className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                      <div className="w-full h-full rounded-full bg-[linear-gradient(90deg,#00e5ff33,#ff2bd633)] flex items-center justify-center">
+                        <span className="text-3xl md:text-4xl font-semibold heading-neon">
                           {references[currentIndex].name.split(' ').map(n => n[0]).join('')}
                         </span>
                       </div>
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur opacity-30" />
-                      <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur-lg opacity-30" />
+                      <div className="absolute -inset-0.5 rounded-full blur opacity-30 bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)]" />
+                      <div className="absolute -inset-1 rounded-full blur-lg opacity-30 bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)]" />
                     </div>
                   </div>
 
                   <div className="w-full md:w-2/3 text-center md:text-left">
-                    <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-lg border border-purple-100 dark:border-purple-900/30">
-                      <h3 className="text-lg md:text-xl font-semibold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">
+                    <div className="bg-[#0b0f13]/80 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-cyan-400/20 hover:shadow-neon transition-all">
+                      <h3 className="text-lg md:text-xl font-semibold heading-neon mb-2">
                         {references[currentIndex].name}
                       </h3>
-                      <p className="text-purple-600 dark:text-purple-400 font-medium mb-2">
+                      <p className="text-cyan-300 font-medium mb-2">
                         {references[currentIndex].position}
                       </p>
-                      <p className="text-gray-600 dark:text-gray-300 mb-4">
+                      <p className="text-slate-300 mb-4">
                         {references[currentIndex].organization}
                       </p>
-                      <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                      <div className="space-y-2 text-sm text-slate-400">
                         <p className="flex items-center justify-center md:justify-start">
-                          <svg className="w-4 h-4 mr-2 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <svg className="w-4 h-4 mr-2 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                           </svg>
-                          <a href={`mailto:${references[currentIndex].email}`} className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors break-all">
+                          <a href={`mailto:${references[currentIndex].email}`} className="hover:text-cyan-300 transition-colors break-all">
                             {references[currentIndex].email}
                           </a>
                         </p>
                         {references[currentIndex].phone && (
                           <p className="flex items-center justify-center md:justify-start">
-                            <svg className="w-4 h-4 mr-2 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <svg className="w-4 h-4 mr-2 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
-                            <a href={`tel:${references[currentIndex].phone}`} className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                            <a href={`tel:${references[currentIndex].phone}`} className="hover:text-cyan-300 transition-colors">
                               {references[currentIndex].phone}
                             </a>
                           </p>
                         )}
                         <p className="flex items-center justify-center md:justify-start">
-                          <svg className="w-4 h-4 mr-2 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <svg className="w-4 h-4 mr-2 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                           </svg>
                           {references[currentIndex].relationship}
@@ -280,11 +280,11 @@ const References = () => {
                     onMouseEnter={handleInteraction}
                     className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                       currentIndex === index
-                        ? 'bg-gradient-to-r from-purple-600 to-blue-600 w-4 md:w-6'
-                        : 'bg-gray-300 dark:bg-gray-600 hover:from-purple-500 hover:to-blue-500 hover:bg-gradient-to-r'
+                        ? 'w-4 md:w-6 bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] shadow-neon'
+                        : 'bg-cyan-400/20 hover:bg-cyan-400/40'
                     }`}
                     role="tab"
-                    aria-selected={currentIndex === index}
+                    aria-current={currentIndex === index ? 'true' : undefined}
                     aria-label={`Go to reference ${index + 1}`}
                   />
                 ))}
@@ -293,11 +293,11 @@ const References = () => {
               {/* Play/Pause Button */}
               <button
                 onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                className="p-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border border-purple-100 dark:border-purple-900/30"
+                className="p-2 rounded-full bg-[#0b0f13]/80 backdrop-blur-sm hover:shadow-neon transition-colors border border-cyan-400/20"
                 aria-label={isAutoPlaying ? 'Pause auto-play' : 'Resume auto-play'}
               >
                 <svg
-                  className="w-5 h-5 md:w-6 md:h-6 text-purple-600 dark:text-purple-400"
+                  className="w-5 h-5 md:w-6 md:h-6 text-cyan-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -319,10 +319,10 @@ const References = () => {
                   prevSlide();
                   handleInteraction();
                 }}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border border-purple-100 dark:border-purple-900/30"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 p-2 rounded-full bg-[#0b0f13]/80 backdrop-blur-sm hover:shadow-neon transition-colors border border-cyan-400/20"
                 aria-label="Previous reference"
               >
-                <svg className="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg className="w-6 h-6 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
@@ -331,10 +331,10 @@ const References = () => {
                   nextSlide();
                   handleInteraction();
                 }}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border border-purple-100 dark:border-purple-900/30"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 p-2 rounded-full bg-[#0b0f13]/80 backdrop-blur-sm hover:shadow-neon transition-colors border border-cyan-400/20"
                 aria-label="Next reference"
               >
-                <svg className="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg className="w-6 h-6 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                 </svg>
               </button>

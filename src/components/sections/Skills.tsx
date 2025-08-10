@@ -90,7 +90,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+    <section id="skills" className="py-24 bg-[#0b0f13] cyber-grid-bg">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -103,7 +103,7 @@ const Skills = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-extrabold text-center mb-16 heading-neon"
           >
             Skills & Expertise
           </motion.h2>
@@ -118,8 +118,8 @@ const Skills = () => {
                 whileTap={{ scale: 0.95 }}
                 className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${
                   activeCategory === category.id
-                    ? 'bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-lg shadow-purple-500/50'
-                    : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-purple-900/30 shadow-sm hover:shadow-md'
+                    ? 'text-[#0b0f13] bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] shadow-neon'
+                    : 'bg-[#0b0f13] text-slate-300 border border-cyan-400/20 hover:bg-cyan-400/10 hover:text-neon'
                 }`}
               >
                 <span className="text-lg">{category.icon}</span>
@@ -138,13 +138,13 @@ const Skills = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.5 }}
-                  className="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-600"
+                  className="bg-[#0b0f13] rounded-2xl p-8 transition-all duration-300 border border-cyan-400/20 hover:shadow-neon"
                 >
                   <div className="flex items-center space-x-4 mb-8">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-xl bg-[linear-gradient(90deg,#00e5ff33,#ff2bd633)] flex items-center justify-center">
                       <span className="text-2xl">{category.icon}</span>
                     </div>
-                    <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">
+                    <h3 className="text-2xl font-semibold text-white heading-neon">
                       {category.name}
                     </h3>
                   </div>
@@ -154,18 +154,18 @@ const Skills = () => {
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-3">
                             <span className="text-xl">{skill.icon}</span>
-                            <span className="text-gray-700 dark:text-gray-300 font-medium">{skill.name}</span>
+                            <span className="text-slate-300 font-medium">{skill.name}</span>
                           </div>
-                          <span className="text-sm font-semibold text-purple-600 dark:text-purple-400">
+                          <span className="text-sm font-semibold text-cyan-300">
                             {skill.level}%
                           </span>
                         </div>
-                        <div className="w-full bg-gray-100 dark:bg-gray-600 rounded-full h-2.5">
+                        <div className="w-full bg-cyan-400/10 rounded-full h-2.5">
                           <motion.div
                             initial={{ width: 0 }}
                             animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
                             transition={{ duration: 1, delay: index * 0.1 }}
-                            className="h-2.5 rounded-full bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600"
+                            className="h-2.5 rounded-full bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] shadow-neon"
                           />
                         </div>
                       </div>
@@ -184,27 +184,27 @@ const Skills = () => {
                   animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -5 }}
-                  className="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-600"
+                  className="bg-[#0b0f13] rounded-2xl p-8 transition-all duration-300 border border-cyan-400/20 hover:shadow-neon"
                 >
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-xl bg-[linear-gradient(90deg,#00e5ff33,#ff2bd633)] flex items-center justify-center">
                         <span className="text-2xl">{skill.icon}</span>
                       </div>
-                      <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
+                      <h3 className="text-xl font-semibold text-white heading-neon">
                         {skill.name}
                       </h3>
                     </div>
-                    <span className="text-sm font-semibold text-purple-600 dark:text-purple-400">
+                    <span className="text-sm font-semibold text-cyan-300">
                       {skill.level}%
                     </span>
                   </div>
-                  <div className="w-full bg-gray-100 dark:bg-gray-600 rounded-full h-3">
+                  <div className="w-full bg-cyan-400/10 rounded-full h-3">
                     <motion.div
                       initial={{ width: 0 }}
                       animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
                       transition={{ duration: 1, delay: index * 0.1 }}
-                      className="h-3 rounded-full bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600"
+                      className="h-3 rounded-full bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] shadow-neon"
                     />
                   </div>
                 </motion.div>

@@ -9,10 +9,13 @@ const ThemeToggle = () => {
 
   return (
     <StyledWrapper>
-      <label className="switch">
+      <label className="switch" htmlFor="theme-toggle">
         <input 
           type="checkbox" 
-          id="toggle" 
+          id="theme-toggle" 
+          name="theme-toggle"
+          title="Toggle color theme"
+          aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           checked={theme === 'dark'}
           onChange={toggleTheme}
         />

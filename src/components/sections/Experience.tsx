@@ -11,6 +11,14 @@ const Experience = () => {
 
   const experiences = [
     {
+      title: 'Web Developer',
+      company: 'Universitas Singaperbangsa Karawang, IRO Office',
+      period: 'May 2025 - Present',
+      description:
+        'Design, develop, and maintain responsive university websites, implement interactive features, and optimize performance for enhanced user experience.',
+      skills: ['Web Development', 'Responsive Design', 'JavaScript', 'Performance Optimization'],
+    },
+    {
       title: 'Educational Consultant',
       company: 'Freelancer',
       period: 'Oct 2022 - Present',
@@ -62,7 +70,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 bg-gradient-to-b from-white to-purple-50 dark:from-gray-900 dark:to-gray-800">
+    <section id="experience" className="py-24 bg-[#0b0f13] cyber-grid-bg">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -75,7 +83,7 @@ const Experience = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-extrabold text-center mb-16 heading-neon"
           >
             Work Experience
           </motion.h2>
@@ -94,15 +102,15 @@ const Experience = () => {
                     className="md:w-1/3"
                     whileHover={{ x: 5 }}
                   >
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
-                      <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-2">
+                    <div className="bg-[#0b0f13] p-6 rounded-2xl border border-cyan-400/20 hover:shadow-neon transition-all">
+                      <h3 className="text-2xl font-semibold text-white mb-2 heading-neon">
                         {exp.title}
                       </h3>
-                      <p className="text-purple-600 dark:text-purple-400 font-medium">
+                      <p className="text-cyan-300 font-medium">
                         {exp.company}
                       </p>
-                      <p className="text-gray-600 dark:text-gray-300 mt-3 flex items-center">
-                        <svg className="w-5 h-5 mr-2 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <p className="text-slate-300 mt-3 flex items-center">
+                        <svg className="w-5 h-5 mr-2 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                         {exp.period}
@@ -113,8 +121,8 @@ const Experience = () => {
                     className="md:w-2/3"
                     whileHover={{ x: -5 }}
                   >
-                    <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
-                      <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
+                    <div className="bg-[#0b0f13] p-8 rounded-2xl border border-cyan-400/20 hover:shadow-neon transition-all">
+                      <p className="text-slate-300 text-lg leading-relaxed mb-6">
                         {exp.description}
                       </p>
                       <div className="flex flex-wrap gap-3">
@@ -122,7 +130,7 @@ const Experience = () => {
                           <motion.span
                             key={skillIndex}
                             whileHover={{ scale: 1.05 }}
-                            className="px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-600 dark:text-purple-400 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all duration-300"
+                            className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border border-cyan-400/20 text-cyan-200 bg-cyan-400/5 hover:bg-cyan-400/10"
                           >
                             {skill}
                           </motion.span>
@@ -132,7 +140,7 @@ const Experience = () => {
                   </motion.div>
                 </div>
                 {index < experiences.length - 1 && (
-                  <div className="hidden md:block absolute left-1/3 top-full w-0.5 h-16 bg-gradient-to-b from-purple-500 to-blue-500" />
+                  <div className="hidden md:block absolute left-1/3 top-full w-0.5 h-16 bg-[linear-gradient(180deg,#00e5ff,#ff2bd6)]" />
                 )}
               </motion.div>
             ))}

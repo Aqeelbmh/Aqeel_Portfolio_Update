@@ -24,6 +24,17 @@ const Projects = () => {
 
   const projects = [
     {
+      title: 'UNSIKA IRO Website',
+      description:
+        'Designed and developed a responsive website for the International Relations Office of Universitas Singaperbangsa Karawang. Integrated interactive features, optimized performance, and ensured accessibility across devices.',
+      image:
+        'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=800&auto=format&fit=crop',
+      category: 'web',
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
+      demoLink: 'https://iro.unsika.ac.id/index.html',
+      githubLink: '#', // Replace with the GitHub repo link if available
+    },
+    {
       title: 'Portfolio Website',
       description: 'A modern, responsive portfolio website showcasing professional work and skills. Features dark mode, smooth animations, and contact form integration.',
       image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800&auto=format&fit=crop',
@@ -93,7 +104,7 @@ const Projects = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+    <section id="projects" className="py-24 bg-[#0b0f13] cyber-grid-bg">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -106,7 +117,7 @@ const Projects = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-extrabold text-center mb-16 heading-neon"
           >
             Featured Projects
           </motion.h2>
@@ -120,8 +131,8 @@ const Projects = () => {
                 whileTap={{ scale: 0.95 }}
                 className={`px-6 py-3 rounded-full capitalize transition-all duration-300 flex items-center space-x-2 ${
                   activeCategory === category.id
-                    ? 'bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-lg shadow-purple-500/50'
-                    : 'bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-purple-900/20 shadow-sm hover:shadow-md'
+                    ? 'text-[#0b0f13] bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] shadow-neon'
+                    : 'bg-[#0b0f13] text-slate-300 border border-cyan-400/20 hover:bg-cyan-400/10 hover:text-neon'
                 }`}
               >
                 <span className="text-lg">{category.icon}</span>
@@ -138,7 +149,7 @@ const Projects = () => {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-600"
+                className="relative bg-[#0b0f13] rounded-2xl overflow-hidden transition-all duration-300 border border-cyan-400/20 hover:shadow-neon"
               >
                 <div className="relative h-56 group">
                   <Image
@@ -147,13 +158,13 @@ const Projects = () => {
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,15,19,0.8),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-3">
+                  <h3 className="text-2xl font-semibold text-white mb-3 heading-neon">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
+                  <p className="text-slate-300 text-lg leading-relaxed mb-6">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-3 mb-6">
@@ -161,7 +172,7 @@ const Projects = () => {
                       <motion.span
                         key={tech}
                         whileHover={{ scale: 1.05 }}
-                        className="px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-600 dark:text-purple-400 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all duration-300"
+                        className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border border-cyan-400/20 text-cyan-200 bg-cyan-400/5 hover:bg-cyan-400/10"
                       >
                         {tech}
                       </motion.span>
@@ -175,7 +186,7 @@ const Projects = () => {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="flex items-center space-x-2 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium transition-colors duration-300"
+                        className="flex items-center space-x-2 text-cyan-300 hover:text-cyan-200 font-medium transition-colors duration-300"
                       >
                         <FaExternalLinkAlt className="text-lg" />
                         <span>Live Demo</span>
@@ -188,7 +199,7 @@ const Projects = () => {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="flex items-center space-x-2 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium transition-colors duration-300"
+                        className="flex items-center space-x-2 text-cyan-300 hover:text-cyan-200 font-medium transition-colors duration-300"
                       >
                         <FaGithub className="text-lg" />
                         <span>Source Code</span>

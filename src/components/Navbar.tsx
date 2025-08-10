@@ -71,9 +71,9 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full z-50 transition-all duration-300 font-['Poppins'] ${
+      className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-slate-900/80 backdrop-blur-xl shadow-lg shadow-amber-500/10 border-b border-slate-800' 
+          ? 'bg-[#0b0f13]/80 backdrop-blur-xl border-b border-cyan-400/20 shadow-neon' 
           : 'bg-transparent'
       }`}
     >
@@ -90,22 +90,21 @@ const Navbar = () => {
               >
                 <button
                   onClick={() => handleNavClick(item.to)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative group ${
+                  className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 relative group tracking-wide ${
                     activeSection === item.to
-                      ? 'text-white'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'text-neon'
+                      : 'text-slate-300 hover:text-neon'
                   }`}
                 >
-                  <span className="relative z-10">{item.name}</span>
+                  <span className="relative z-10 heading-neon">{item.name}</span>
                   {activeSection === item.to && (
                     <motion.div
                       layoutId="activeSection"
-                      className="absolute inset-0 bg-gradient-to-r from-amber-600 to-rose-500 rounded-lg shadow-lg shadow-amber-500/20"
+                      className="absolute inset-0 rounded-md opacity-10 bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] animate-gradient-x"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
-                  <span className="absolute inset-0 bg-gradient-to-r from-amber-600/20 to-rose-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-600 to-rose-500 group-hover:w-full transition-all duration-300" />
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] group-hover:w-full transition-all duration-300 shadow-neon" />
                 </button>
               </motion.div>
             ))}
@@ -117,7 +116,7 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden absolute right-0 p-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800/50 transition-colors duration-300"
+            className="md:hidden absolute right-0 p-2 rounded-lg text-cyan-300 hover:text-white hover:bg-cyan-400/10 transition-colors duration-300"
             aria-label="Toggle menu"
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">
@@ -137,7 +136,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-slate-800"
+            className="md:hidden bg-[#0b0f13]/95 backdrop-blur-xl border-t border-cyan-400/20"
           >
             <div className="container mx-auto px-4 py-4">
               <div className="grid grid-cols-2 gap-2">
@@ -148,14 +147,14 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                     onClick={() => handleNavClick(item.to)}
-                    className={`p-3 rounded-lg text-sm font-medium text-center transition-all duration-300 relative group ${
+                    className={`p-3 rounded-md text-sm font-medium text-center transition-all duration-300 relative group ${
                       activeSection === item.to
-                        ? 'bg-gradient-to-r from-amber-600 to-rose-500 text-white shadow-lg shadow-amber-500/20'
-                        : 'text-slate-300 hover:bg-slate-800/50 hover:text-white'
+                        ? 'text-white bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] shadow-neon'
+                        : 'text-slate-300 hover:bg-cyan-400/10 hover:text-neon'
                     }`}
                   >
-                    <span className="relative z-10">{item.name}</span>
-                    <span className="absolute inset-0 bg-gradient-to-r from-amber-600/20 to-rose-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <span className="relative z-10 heading-neon">{item.name}</span>
+                    <span className="absolute inset-0 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[linear-gradient(90deg,#00e5ff33,#ff2bd633)]" />
                   </motion.button>
                 ))}
               </div>

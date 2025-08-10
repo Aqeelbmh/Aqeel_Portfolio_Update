@@ -14,10 +14,10 @@ const Education = () => {
     {
       title: 'BSc (Hons) Computer Science',
       institution: 'University of Singaperbangsa Karawang',
-      period: '2021 - Present',
+      period: '2021 - 2025',
       description: 'Currently pursuing a Bachelor\'s degree in Computer Science with a focus on software development, data structures, algorithms, and emerging technologies such as AI and cybersecurity.',
       image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=800&auto=format&fit=crop',
-      certificateUrl: 'https://drive.google.com/file/d/1GgJtz3luFudazhTxn-1ZRrG1dUNrowoI/view?usp=drive_link',
+      certificateUrl: 'https://drive.google.com/file/d/1NK6l0h9kpf8mKGcfluK2OVGJCAZvVrFb/view?usp=sharing',
     },
     {
       title: 'Certified Ethical Hacker (CEH v11)',
@@ -46,7 +46,7 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-24 bg-gradient-to-b from-slate-50 to-amber-50 dark:from-slate-900 dark:to-slate-800">
+    <section id="education" className="py-24 bg-[#0b0f13] cyber-grid-bg">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -59,7 +59,7 @@ const Education = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-amber-600 via-rose-500 to-emerald-600 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-extrabold text-center mb-16 heading-neon"
           >
             Education
           </motion.h2>
@@ -78,15 +78,15 @@ const Education = () => {
                     className="md:w-1/3"
                     whileHover={{ x: 5 }}
                   >
-                    <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700">
-                      <h3 className="text-2xl font-semibold text-slate-800 dark:text-white mb-2">
+                    <div className="bg-[#0b0f13] p-6 rounded-2xl border border-cyan-400/20 hover:shadow-neon transition-all">
+                      <h3 className="text-2xl font-semibold text-white mb-2 heading-neon">
                         {edu.title}
                       </h3>
-                      <p className="text-amber-600 dark:text-amber-400 font-medium">
+                      <p className="text-cyan-300 font-medium">
                         {edu.institution}
                       </p>
-                      <p className="text-slate-600 dark:text-slate-300 mt-3 flex items-center">
-                        <FaCalendarAlt className="w-5 h-5 mr-2 text-amber-500" />
+                      <p className="text-slate-300 mt-3 flex items-center">
+                        <FaCalendarAlt className="w-5 h-5 mr-2 text-cyan-400" />
                         {edu.period}
                       </p>
                     </div>
@@ -95,8 +95,8 @@ const Education = () => {
                     className="md:w-2/3"
                     whileHover={{ x: -5 }}
                   >
-                    <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700">
-                      <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-6">
+                    <div className="bg-[#0b0f13] p-8 rounded-2xl border border-cyan-400/20 hover:shadow-neon transition-all">
+                      <p className="text-slate-300 text-lg leading-relaxed mb-6">
                         {edu.description}
                       </p>
                       {edu.certificateUrl && (
@@ -106,7 +106,7 @@ const Education = () => {
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-amber-600 to-rose-500 text-white rounded-xl hover:from-amber-700 hover:to-rose-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+                          className="inline-flex items-center px-6 py-3 rounded-xl text-[#0b0f13] bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] hover:shadow-neon transition-all duration-300"
                         >
                           <FaExternalLinkAlt className="w-5 h-5 mr-2" />
                           View Certificate
@@ -116,7 +116,7 @@ const Education = () => {
                   </motion.div>
                 </div>
                 {index < education.length - 1 && (
-                  <div className="hidden md:block absolute left-1/3 top-full w-0.5 h-16 bg-gradient-to-b from-amber-500 to-rose-500" />
+                  <div className="hidden md:block absolute left-1/3 top-full w-0.5 h-16 bg-[linear-gradient(180deg,#00e5ff,#ff2bd6)]" />
                 )}
               </motion.div>
             ))}

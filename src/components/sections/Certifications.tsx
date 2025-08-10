@@ -88,7 +88,7 @@ const Certifications = () => {
   ];
 
   return (
-    <section id="certifications" className="py-24 bg-gradient-to-b from-slate-50 to-amber-50 dark:from-slate-900 dark:to-slate-800">
+    <section id="certifications" className="py-24 bg-[#0b0f13] cyber-grid-bg">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -101,7 +101,7 @@ const Certifications = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-amber-600 via-rose-500 to-emerald-600 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-extrabold text-center mb-16 heading-neon"
           >
             Certifications
           </motion.h2>
@@ -114,7 +114,7 @@ const Certifications = () => {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 dark:border-slate-700"
+                className="bg-[#0b0f13] rounded-2xl overflow-hidden transition-all duration-300 border border-cyan-400/20 hover:shadow-neon"
               >
                 <div className="relative h-56 group">
                   <Image
@@ -126,22 +126,22 @@ const Certifications = () => {
                     priority={index < 2}
                     quality={90}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,15,19,0.8),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-semibold text-slate-800 dark:text-white mb-3">
+                  <h3 className="text-2xl font-semibold text-white mb-3 heading-neon">
                     {cert.title}
                   </h3>
-                  <p className="text-amber-600 dark:text-amber-400 font-medium mb-2">
+                  <p className="text-cyan-300 font-medium mb-2">
                     {cert.issuer}
                   </p>
-                  <p className="text-slate-600 dark:text-slate-300 mb-4 flex items-center">
-                    <svg className="w-5 h-5 mr-2 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <p className="text-slate-300 mb-4 flex items-center">
+                    <svg className="w-5 h-5 mr-2 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     {cert.date}
                   </p>
-                  <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-6">
+                  <p className="text-slate-300 text-lg leading-relaxed mb-6">
                     {cert.description}
                   </p>
                   <motion.a
@@ -150,7 +150,7 @@ const Certifications = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-amber-600 to-rose-500 text-white rounded-xl hover:from-amber-700 hover:to-rose-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="inline-flex items-center px-6 py-3 text-[#0b0f13] rounded-xl bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] hover:shadow-neon transition-all duration-300"
                   >
                     <FaExternalLinkAlt className="w-5 h-5 mr-2" />
                     View Certificate
