@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 // import { useTheme } from '@/context/ThemeContext';
 
@@ -23,6 +23,8 @@ const Navbar = () => {
     { name: 'References', to: 'references' },
     { name: 'Contact', to: 'contact' },
   ], []);
+
+  const navRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     // Lock body scroll when mobile menu is open
@@ -62,7 +64,8 @@ const Navbar = () => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+          const topThreshold = (navRef.current?.offsetHeight ?? 80) + 20;
+          return rect.top <= topThreshold && rect.bottom >= topThreshold;
         }
         return false;
       });
@@ -80,7 +83,7 @@ const Navbar = () => {
     setIsOpen(false);
     const element = document.getElementById(section);
     if (element) {
-      const offset = 80;
+      const offset = navRef.current?.offsetHeight ?? 80;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -95,10 +98,11 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 w-full z-[1000] pointer-events-auto transition-all duration-300 ${
+      ref={navRef as unknown as React.Ref<HTMLElement>}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+      className={`fixed top-0 left-0 w-full z-[1000] pointer-events-auto pt-[env(safe-area-inset-top)] transition-all duration-300 ${
         scrolled 
           ? 'bg-[#0b0f13]/80 backdrop-blur-xl border-b border-cyan-400/20 shadow-neon' 
           : 'bg-transparent'
@@ -142,12 +146,13 @@ const Navbar = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            onPointerUp={(e) => { e.stopPropagation(); setIsOpen((prev) => !prev); }}
+            onTouchStart={(e) => { e.stopPropagation(); (window as unknown as { __touch?: boolean }).__touch = true; }}
+            onClick={(e) => { e.stopPropagation(); if ((window as unknown as { __touch?: boolean }).__touch) { (window as unknown as { __touch?: boolean }).__touch = false; } setIsOpen((prev) => !prev); }}
             type="button"
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
-            className="md:hidden absolute right-3 p-2 rounded-md text-cyan-300 hover:text-white hover:bg-cyan-400/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 pointer-events-auto z-[1100]"
-            style={{ touchAction: 'manipulation' }}
+            className="md:hidden absolute right-3 p-3 min-w-10 min-h-10 rounded-md text-cyan-300 hover:text-white hover:bg-cyan-400/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 pointer-events-auto z-[2000] cursor-pointer"
+            style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
             aria-label="Toggle menu"
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">
@@ -177,14 +182,15 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden fixed inset-x-0 top-20 z-[999] bg-[#0b0f13]/95 backdrop-blur-xl border-t border-cyan-400/20 max-h-[calc(100vh-80px)] overflow-auto"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden fixed inset-x-0 z-[1500] bg-[#0b0f13]/95 backdrop-blur-xl border-t border-cyan-400/20 overflow-auto top-[calc(5rem+env(safe-area-inset-top))] max-h-[calc(100vh-80px-env(safe-area-inset-top))]"
             role="dialog"
             aria-modal="true"
             onClick={(e) => e.stopPropagation()}
+            style={{ WebkitOverflowScrolling: 'touch' }}
           >
             <div className="container mx-auto px-4 py-4">
           <div id="mobile-menu" className="grid grid-cols-2 gap-2">
