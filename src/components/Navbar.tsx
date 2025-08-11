@@ -2,13 +2,13 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '@/context/ThemeContext';
+// import { useTheme } from '@/context/ThemeContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
 
   const navItems = useMemo(() => [
     { name: 'Home', to: 'hero' },
@@ -23,6 +23,33 @@ const Navbar = () => {
     { name: 'References', to: 'references' },
     { name: 'Contact', to: 'contact' },
   ], []);
+
+  useEffect(() => {
+    // Lock body scroll when mobile menu is open
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => { document.body.style.overflow = originalOverflow; };
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    // Close menu on Escape key
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
+
+  useEffect(() => {
+    // Auto-close on resize to desktop
+    const onResize = () => {
+      if (window.innerWidth >= 768) setIsOpen(false);
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,7 +98,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full z-[100] transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-[1000] pointer-events-auto transition-all duration-300 ${
         scrolled 
           ? 'bg-[#0b0f13]/80 backdrop-blur-xl border-b border-cyan-400/20 shadow-neon' 
           : 'bg-transparent'
@@ -115,11 +142,12 @@ const Navbar = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            onClick={() => setIsOpen(!isOpen)}
+            onPointerUp={(e) => { e.stopPropagation(); setIsOpen((prev) => !prev); }}
             type="button"
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
-            className="md:hidden absolute right-3 p-2 rounded-md text-cyan-300 hover:text-white hover:bg-cyan-400/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            className="md:hidden absolute right-3 p-2 rounded-md text-cyan-300 hover:text-white hover:bg-cyan-400/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 pointer-events-auto z-[1100]"
+            style={{ touchAction: 'manipulation' }}
             aria-label="Toggle menu"
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">
@@ -131,6 +159,20 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Mobile Menu Backdrop */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden fixed inset-0 top-20 z-[990] bg-black/40"
+            onClick={() => setIsOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
@@ -139,7 +181,10 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-[#0b0f13]/95 backdrop-blur-xl border-t border-cyan-400/20"
+            className="md:hidden fixed inset-x-0 top-20 z-[999] bg-[#0b0f13]/95 backdrop-blur-xl border-t border-cyan-400/20 max-h-[calc(100vh-80px)] overflow-auto"
+            role="dialog"
+            aria-modal="true"
+            onClick={(e) => e.stopPropagation()}
           >
             <div className="container mx-auto px-4 py-4">
           <div id="mobile-menu" className="grid grid-cols-2 gap-2">
