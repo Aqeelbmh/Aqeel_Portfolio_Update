@@ -102,7 +102,7 @@ const Hero = () => {
                 </span>
               </motion.div>
               <p className="text-base sm:text-lg text-slate-300/90 mb-8 max-w-2xl leading-relaxed">
-                Cybersecurity Analyst and Data Scientist transforming complex data into actionable insights while ensuring robust digital security. Full-stack developer and IoT architect passionate about creating secure, efficient, and user-friendly solutions that drive innovation.
+                Data Analyst and Data Scientist turning complex datasets into clear, actionable insights through rigorous modeling, visualization, and storytelling. Full-stack developer and IoT architect focused on building efficient, user-friendly, and scalable solutions. Cybersecurity analyst dedicated to safeguarding systems and integrating security best practices across the stack.
               </p>
             </motion.div>
 
