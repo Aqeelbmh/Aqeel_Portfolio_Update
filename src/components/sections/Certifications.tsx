@@ -88,7 +88,7 @@ const Certifications = () => {
   ];
 
   return (
-    <section id="certifications" className="py-24 bg-[#0b0f13] cyber-grid-bg">
+    <section id="certifications" className="py-24 bg-[color:var(--bg)] cyber-grid-bg">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -101,7 +101,7 @@ const Certifications = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-extrabold text-center mb-16 heading-neon"
+            className="text-4xl md:text-5xl font-extrabold text-center mb-14 heading-neon"
           >
             Certifications
           </motion.h2>
@@ -114,34 +114,34 @@ const Certifications = () => {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="bg-[#0b0f13] rounded-2xl overflow-hidden transition-all duration-300 border border-cyan-400/20 hover:shadow-neon"
+                className="bg-[color:var(--card)] rounded-2xl overflow-hidden transition-all duration-300 border border-[color:var(--border)] hover:translate-y-[-6px]"
               >
                 <div className="relative h-56 group">
                   <Image
                     src={cert.image}
                     alt={cert.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     priority={index < 2}
                     quality={90}
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,15,19,0.8),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,15,19,0.7),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-8">
                   <h3 className="text-2xl font-semibold text-white mb-3 heading-neon">
                     {cert.title}
                   </h3>
-                  <p className="text-cyan-300 font-medium mb-2">
+                  <p className="text-slate-200 font-medium mb-2">
                     {cert.issuer}
                   </p>
-                  <p className="text-slate-300 mb-4 flex items-center">
-                    <svg className="w-5 h-5 mr-2 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <p className="text-slate-300/90 mb-4 flex items-center">
+                    <svg className="w-5 h-5 mr-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     {cert.date}
                   </p>
-                  <p className="text-slate-300 text-lg leading-relaxed mb-6">
+                  <p className="text-slate-300/90 text-lg leading-relaxed mb-6">
                     {cert.description}
                   </p>
                   <motion.a
@@ -150,7 +150,7 @@ const Certifications = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center px-6 py-3 text-[#0b0f13] rounded-xl bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] hover:shadow-neon transition-all duration-300"
+                    className="inline-flex items-center px-6 py-3 text-[color:var(--bg)] rounded-xl bg-[linear-gradient(90deg,var(--accent),var(--accent-2))] hover:brightness-110 transition-all duration-300"
                   >
                     <FaExternalLinkAlt className="w-5 h-5 mr-2" />
                     View Certificate

@@ -104,12 +104,12 @@ const Navbar = () => {
       transition={{ duration: 0.4 }}
       className={`fixed top-0 left-0 w-full z-[1000] pointer-events-auto pt-[env(safe-area-inset-top)] transition-all duration-300 ${
         scrolled 
-          ? 'bg-[#0b0f13]/80 backdrop-blur-xl border-b border-cyan-400/20 shadow-neon' 
+          ? 'bg-[color:var(--bg-soft)]/70 backdrop-blur-md border-b border-[color:var(--border)]' 
           : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-center h-20 relative">
+        <div className="flex items-center justify-center h-16 md:h-20 relative">
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center justify-center space-x-2">
             {navItems.map((item, index) => (
@@ -151,7 +151,7 @@ const Navbar = () => {
             type="button"
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
-            className="md:hidden absolute right-3 p-3 min-w-10 min-h-10 rounded-md text-cyan-300 hover:text-white hover:bg-cyan-400/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 pointer-events-auto z-[2000] cursor-pointer"
+            className="md:hidden absolute right-3 p-2.5 min-w-10 min-h-10 rounded-md text-slate-200 hover:text-white hover:bg-white/5 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[color:var(--ring)] pointer-events-auto z-[2000] cursor-pointer"
             style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
             aria-label="Toggle menu"
           >
@@ -172,7 +172,7 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden fixed inset-0 top-20 z-[990] bg-black/40"
+            className="md:hidden fixed inset-0 top-16 md:top-20 z-[990] bg-black/40"
             onClick={() => setIsOpen(false)}
           />
         )}
@@ -186,7 +186,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden fixed inset-x-0 z-[1500] bg-[#0b0f13]/95 backdrop-blur-xl border-t border-cyan-400/20 overflow-auto top-[calc(5rem+env(safe-area-inset-top))] max-h-[calc(100vh-80px-env(safe-area-inset-top))]"
+            className="md:hidden fixed inset-x-0 z-[1500] bg-[color:var(--bg-soft)]/95 backdrop-blur-xl border-t border-[color:var(--border)] overflow-auto top-[calc(4rem+env(safe-area-inset-top))] md:top-[calc(5rem+env(safe-area-inset-top))] max-h-[calc(100vh-64px-env(safe-area-inset-top))] md:max-h-[calc(100vh-80px-env(safe-area-inset-top))]"
             role="dialog"
             aria-modal="true"
             onClick={(e) => e.stopPropagation()}
@@ -203,12 +203,12 @@ const Navbar = () => {
                     onClick={() => handleNavClick(item.to)}
                     className={`p-3 rounded-md text-base md:text-sm font-medium text-center transition-all duration-300 relative group ${
                       activeSection === item.to
-                        ? 'text-white bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] shadow-neon'
-                        : 'text-slate-300 hover:bg-cyan-400/10 hover:text-neon'
+                        ? 'text-[color:var(--bg)] bg-[linear-gradient(90deg,var(--accent),var(--accent-2))]'
+                        : 'text-slate-300 hover:bg-white/5 hover:text-white'
                     }`}
                   >
                     <span className="relative z-10 heading-neon">{item.name}</span>
-                    <span className="absolute inset-0 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[linear-gradient(90deg,#00e5ff33,#ff2bd633)]" />
+                    <span className="absolute inset-0 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/5" />
                   </motion.button>
                 ))}
               </div>

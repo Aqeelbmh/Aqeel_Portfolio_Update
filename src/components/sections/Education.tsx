@@ -46,7 +46,7 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-24 bg-[#0b0f13] cyber-grid-bg">
+    <section id="education" className="py-24 bg-[color:var(--bg)] cyber-grid-bg">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -59,7 +59,7 @@ const Education = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-extrabold text-center mb-16 heading-neon"
+            className="text-4xl md:text-5xl font-extrabold text-center mb-14 heading-neon"
           >
             Education
           </motion.h2>
@@ -78,15 +78,15 @@ const Education = () => {
                     className="md:w-1/3"
                     whileHover={{ x: 5 }}
                   >
-                    <div className="bg-[#0b0f13] p-6 rounded-2xl border border-cyan-400/20 hover:shadow-neon transition-all">
+                    <div className="bg-[color:var(--card)] p-6 rounded-2xl border border-[color:var(--border)] transition-all">
                       <h3 className="text-2xl font-semibold text-white mb-2 heading-neon">
                         {edu.title}
                       </h3>
-                      <p className="text-cyan-300 font-medium">
+                      <p className="text-slate-200 font-medium">
                         {edu.institution}
                       </p>
-                      <p className="text-slate-300 mt-3 flex items-center">
-                        <FaCalendarAlt className="w-5 h-5 mr-2 text-cyan-400" />
+                      <p className="text-slate-300/90 mt-3 flex items-center">
+                        <FaCalendarAlt className="w-5 h-5 mr-2 text-slate-400" />
                         {edu.period}
                       </p>
                     </div>
@@ -95,8 +95,8 @@ const Education = () => {
                     className="md:w-2/3"
                     whileHover={{ x: -5 }}
                   >
-                    <div className="bg-[#0b0f13] p-8 rounded-2xl border border-cyan-400/20 hover:shadow-neon transition-all">
-                      <p className="text-slate-300 text-lg leading-relaxed mb-6">
+                    <div className="bg-[color:var(--card)] p-8 rounded-2xl border border-[color:var(--border)] transition-all">
+                      <p className="text-slate-300/90 text-lg leading-relaxed mb-6">
                         {edu.description}
                       </p>
                       {edu.certificateUrl && (
@@ -106,7 +106,7 @@ const Education = () => {
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          className="inline-flex items-center px-6 py-3 rounded-xl text-[#0b0f13] bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] hover:shadow-neon transition-all duration-300"
+                          className="inline-flex items-center px-6 py-3 rounded-xl text-[color:var(--bg)] bg-[linear-gradient(90deg,var(--accent),var(--accent-2))] hover:brightness-110 transition-all duration-300"
                         >
                           <FaExternalLinkAlt className="w-5 h-5 mr-2" />
                           View Certificate
@@ -116,7 +116,7 @@ const Education = () => {
                   </motion.div>
                 </div>
                 {index < education.length - 1 && (
-                  <div className="hidden md:block absolute left-1/3 top-full w-0.5 h-16 bg-[linear-gradient(180deg,#00e5ff,#ff2bd6)]" />
+                  <div className="hidden md:block absolute left-1/3 top-full w-0.5 h-16 bg-[color:var(--border)]" />
                 )}
               </motion.div>
             ))}

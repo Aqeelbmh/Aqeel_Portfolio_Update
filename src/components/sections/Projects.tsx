@@ -104,7 +104,7 @@ const Projects = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-24 bg-[#0b0f13] cyber-grid-bg">
+    <section id="projects" className="py-24 bg-[color:var(--bg)] cyber-grid-bg">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -117,22 +117,22 @@ const Projects = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-extrabold text-center mb-16 heading-neon"
+            className="text-4xl md:text-5xl font-extrabold text-center mb-14 heading-neon"
           >
             Featured Projects
           </motion.h2>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12 md:mb-16">
             {categories.map((category) => (
               <motion.button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-full capitalize transition-all duration-300 flex items-center space-x-2 ${
+                className={`px-5 py-2.5 rounded-full capitalize transition-all duration-300 flex items-center space-x-2 ${
                   activeCategory === category.id
-                    ? 'text-[#0b0f13] bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] shadow-neon'
-                    : 'bg-[#0b0f13] text-slate-300 border border-cyan-400/20 hover:bg-cyan-400/10 hover:text-neon'
+                    ? 'text-[color:var(--bg)] bg-[linear-gradient(90deg,var(--accent),var(--accent-2))]'
+                    : 'bg-[color:var(--bg)] text-slate-300 border border-[color:var(--border)] hover:bg-white/5 hover:text-white'
                 }`}
               >
                 <span className="text-lg">{category.icon}</span>
@@ -149,22 +149,22 @@ const Projects = () => {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="relative bg-[#0b0f13] rounded-2xl overflow-hidden transition-all duration-300 border border-cyan-400/20 hover:shadow-neon"
+                className="relative bg-[color:var(--card)] rounded-2xl overflow-hidden transition-all duration-300 border border-[color:var(--border)] hover:translate-y-[-6px]"
               >
                 <div className="relative h-56 group">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,15,19,0.8),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,15,19,0.7),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-8">
                   <h3 className="text-2xl font-semibold text-white mb-3 heading-neon">
                     {project.title}
                   </h3>
-                  <p className="text-slate-300 text-lg leading-relaxed mb-6">
+                  <p className="text-slate-300/90 text-lg leading-relaxed mb-6">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-3 mb-6">
@@ -172,7 +172,7 @@ const Projects = () => {
                       <motion.span
                         key={tech}
                         whileHover={{ scale: 1.05 }}
-                        className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border border-cyan-400/20 text-cyan-200 bg-cyan-400/5 hover:bg-cyan-400/10"
+                        className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border border-[color:var(--border)] text-slate-200 bg-white/5 hover:bg-white/10"
                       >
                         {tech}
                       </motion.span>
@@ -186,7 +186,7 @@ const Projects = () => {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="flex items-center space-x-2 text-cyan-300 hover:text-cyan-200 font-medium transition-colors duration-300"
+                        className="flex items-center space-x-2 text-slate-200 hover:text-white font-medium transition-colors duration-300"
                       >
                         <FaExternalLinkAlt className="text-lg" />
                         <span>Live Demo</span>
@@ -199,7 +199,7 @@ const Projects = () => {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="flex items-center space-x-2 text-cyan-300 hover:text-cyan-200 font-medium transition-colors duration-300"
+                        className="flex items-center space-x-2 text-slate-200 hover:text-white font-medium transition-colors duration-300"
                       >
                         <FaGithub className="text-lg" />
                         <span>Source Code</span>

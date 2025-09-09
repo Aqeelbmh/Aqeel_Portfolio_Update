@@ -3,28 +3,54 @@
 @tailwind utilities;
 
 :root {
+  /* base fonts */
   --font-jetbrains-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+
+  /* light theme defaults */
+  --bg: #0b0f13; /* keep dark background by default to match current design */
+  --bg-soft: #0e141b;
+  --card: #0f1720;
+  --border: rgba(148,163,184,0.12);
+  --text: rgba(226,232,240,0.92);
+  --muted: rgba(148,163,184,0.85);
+  --accent: #38bdf8;
+  --accent-2: #22d3ee;
+  --ring: rgba(56,189,248,0.35);
 }
 
-/* Base cyberpunk dark theme */
+/* base body styles regardless of theme */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Base modern dark theme */
 html.dark body {
-  background-color: #0b0f13;
-  color: rgba(255,255,255,0.92);
-  background-image: 
-    radial-gradient(1200px 600px at 10% -10%, rgba(122,92,255,0.08), transparent 60%),
-    radial-gradient(1000px 500px at 110% 10%, rgba(0,229,255,0.08), transparent 60%),
-    radial-gradient(900px 600px at 50% 120%, rgba(255,43,214,0.08), transparent 60%),
-    linear-gradient(rgba(0,229,255,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,229,255,0.06) 1px, transparent 1px);
-  background-size: auto, auto, auto, 32px 32px, 32px 32px;
-  background-position: center, center, center, center, center;
+  --bg: #0b0f13;
+  --bg-soft: #0e141b;
+  --card: #0f1720;
+  --border: rgba(148,163,184,0.12);
+  --text: rgba(226,232,240,0.92);
+  --muted: rgba(148,163,184,0.85);
+  --accent: #38bdf8; /* tailwind sky-400 */
+  --accent-2: #22d3ee; /* cyan-400 */
+  --ring: rgba(56,189,248,0.35);
+
+  background-color: var(--bg);
+  color: var(--text);
+  background-image:
+    radial-gradient(80% 60% at 10% -10%, rgba(56,189,248,0.10), transparent 60%),
+    radial-gradient(70% 50% at 110% 10%, rgba(34,211,238,0.10), transparent 60%),
+    radial-gradient(50% 40% at 50% 120%, rgba(124,58,237,0.10), transparent 60%);
+  background-size: auto, auto, auto;
+  background-position: center, center, center;
   overflow-x: hidden;
 }
 
-/* Neon selection */
+/* Selection */
 ::selection {
-  background: rgba(0,229,255,0.35);
-  color: #0b0f13;
+  background: rgba(56,189,248,0.25);
+  color: var(--bg);
 }
 
 /* Scroll progress bar */
@@ -34,13 +60,13 @@ html.dark body {
   left: 0;
   height: 3px;
   width: 0%;
-  background: linear-gradient(90deg, #00e5ff, #00f5d4, #ff2bd6);
-  box-shadow: 0 0 12px rgba(0,229,255,0.8), 0 0 24px rgba(255,43,214,0.5);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 8px rgba(56,189,248,0.6);
   z-index: 60;
   pointer-events: none;
 }
 
-/* Neon cursor dot */
+/* Accent cursor dot (desktop only) */
 .neon-cursor {
   position: fixed;
   top: 0;
@@ -48,24 +74,22 @@ html.dark body {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #00e5ff;
+  background: var(--accent);
   pointer-events: none;
   mix-blend-mode: screen;
-  box-shadow: 0 0 10px rgba(0,229,255,0.9), 0 0 20px rgba(0,245,212,0.7), 0 0 35px rgba(255,43,214,0.6);
+  box-shadow: 0 0 12px rgba(56,189,248,0.7);
   transform: translate(-50%, -50%);
   z-index: 60;
 }
 
-/* Mobile/touch: simplify effects for performance and clarity */
+/* Mobile/touch: reduce effects for performance */
 @media (hover: none), (pointer: coarse) {
   .neon-cursor { display: none; }
   .glitch::before, .glitch::after { display: none; }
   .scanline::after { display: none; }
-  .shadow-neon { box-shadow: none !important; }
-  .shadow-neon-strong { box-shadow: none !important; }
 }
 
-/* Glitch text effect utility */
+/* Optional glitch effect (toned down) */
 .glitch {
   position: relative;
 }
@@ -80,16 +104,16 @@ html.dark body {
 }
 .glitch::before {
   left: 2px;
-  text-shadow: -1px 0 #ff2bd6;
+  text-shadow: -1px 0 rgba(124,58,237,0.6);
   animation: glitch 1s steps(2, end) infinite;
 }
 .glitch::after {
   left: -2px;
-  text-shadow: 2px 0 #00e5ff;
+  text-shadow: 2px 0 rgba(56,189,248,0.6);
   animation: glitch 1.2s steps(2, end) infinite;
 }
 
-/* Scanline overlay */
+/* Scanline overlay (subtle) */
 .scanline::after {
   content: "";
   position: absolute;
@@ -97,7 +121,7 @@ html.dark body {
   right: 0;
   top: -100%;
   height: 30%;
-  background: linear-gradient(to bottom, rgba(0,229,255,0.0), rgba(0,229,255,0.08), rgba(0,229,255,0.0));
+  background: linear-gradient(to bottom, rgba(56,189,248,0.0), rgba(56,189,248,0.08), rgba(56,189,248,0.0));
   pointer-events: none;
   animation: scanline 4s linear infinite;
 }
@@ -115,17 +139,14 @@ html.dark body {
   pointer-events: none;
   width: 6px;
   height: 6px;
-  background: rgba(0,229,255,0.35);
+  background: rgba(56,189,248,0.35);
   animation: ripple 0.8s ease-out;
 }
 
 /* Utility classes */
-.text-neon {
-  color: #00e5ff;
-  text-shadow: 0 0 6px rgba(0,229,255,0.7), 0 0 12px rgba(0,245,212,0.6);
-}
+.text-neon { color: var(--accent); }
 .heading-neon {
-  background: linear-gradient(90deg, #00e5ff, #00f5d4, #ff2bd6);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -139,10 +160,9 @@ html.dark body {
 
 .animate-blink { animation: blink 1s step-end infinite; }
 
-/* Minimal grid overlay for sections */
+/* Subtle grid overlay (disabled to remove cyber style) */
 .cyber-grid-bg {
-  background-image: linear-gradient(rgba(0,229,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.05) 1px, transparent 1px);
-  background-size: 36px 36px, 36px 36px;
+  background-image: none;
 }
 
 /* Reduced motion support */
@@ -152,9 +172,9 @@ html.dark body {
   .scanline::after { animation: none !important; }
 }
 
-/* Neon blob presets (replace inline styles) */
-.neon-blob { border-radius: 9999px; filter: blur(32px); opacity: 0.6; }
-.neon-blob-cyan { background: radial-gradient(circle, rgba(0,229,255,0.25), transparent 60%); }
-.neon-blob-magenta { background: radial-gradient(circle, rgba(255,43,214,0.22), transparent 60%); }
-.neon-blob-teal { background: radial-gradient(circle, rgba(0,245,212,0.20), transparent 60%); }
-.neon-blob-purple { background: radial-gradient(circle, rgba(122,92,255,0.18), transparent 60%); }
+/* Accent blobs (subtle) */
+.neon-blob { border-radius: 9999px; filter: blur(28px); opacity: 0.45; }
+.neon-blob-cyan { background: radial-gradient(circle, rgba(56,189,248,0.20), transparent 60%); }
+.neon-blob-magenta { background: radial-gradient(circle, rgba(34,211,238,0.18), transparent 60%); }
+.neon-blob-teal { background: radial-gradient(circle, rgba(94,234,212,0.16), transparent 60%); }
+.neon-blob-purple { background: radial-gradient(circle, rgba(124,58,237,0.16), transparent 60%); }

@@ -60,7 +60,7 @@ const Publications = () => {
   };
 
   return (
-    <section id="publications" className="py-24 bg-[#0b0f13] cyber-grid-bg">
+    <section id="publications" className="py-24 bg-[color:var(--bg)] cyber-grid-bg">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -70,7 +70,7 @@ const Publications = () => {
           transition={{ duration: 0.6 }}
           className="max-w-6xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16 heading-neon">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-14 heading-neon">
             Publications
           </h2>
 
@@ -82,17 +82,17 @@ const Publications = () => {
                 variants={itemVariants}
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
-                className="bg-[#0b0f13] rounded-2xl p-8 transition-all duration-300 border border-cyan-400/20 hover:shadow-neon"
+                className="bg-[color:var(--card)] rounded-2xl p-8 transition-all duration-300 border border-[color:var(--border)]"
               >
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                   <div className="flex-1">
                     <h3 className="text-xl md:text-2xl font-semibold text-white mb-3 leading-tight heading-neon">
                       {pub.title}
                     </h3>
-                    <p className="text-cyan-300 font-medium mb-2">
+                    <p className="text-slate-200 font-medium mb-2">
                       {pub.authors}
                     </p>
-                    <div className="flex items-center text-slate-300 mb-4">
+                    <div className="flex items-center text-slate-300/90 mb-4">
                       <span className="font-medium">{pub.journal}</span>
                       <span className="mx-2">•</span>
                       <span>{pub.date}</span>
@@ -107,7 +107,7 @@ const Publications = () => {
                     </div>
                   )}
                 </div>
-                <p className="text-slate-300 mb-6 leading-relaxed">
+                <p className="text-slate-300/90 mb-6 leading-relaxed">
                   {pub.description}
                 </p>
                 {pub.link && (
@@ -115,7 +115,7 @@ const Publications = () => {
                     href={pub.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 rounded-lg text-[#0b0f13] bg-[linear-gradient(90deg,#00e5ff,#00f5d4,#ff2bd6)] hover:shadow-neon transition-colors duration-300"
+                    className="inline-flex items-center px-4 py-2 rounded-lg text-[color:var(--bg)] bg-[linear-gradient(90deg,var(--accent),var(--accent-2))] hover:brightness-110 transition-colors duration-300"
                   >
                     <svg
                       className="w-5 h-5 mr-2"

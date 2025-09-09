@@ -70,7 +70,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 bg-[#0b0f13] cyber-grid-bg">
+    <section id="experience" className="py-24 bg-[color:var(--bg)] cyber-grid-bg">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -83,7 +83,7 @@ const Experience = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-extrabold text-center mb-16 heading-neon"
+            className="text-4xl md:text-5xl font-extrabold text-center mb-14 heading-neon"
           >
             Work Experience
           </motion.h2>
@@ -102,15 +102,15 @@ const Experience = () => {
                     className="md:w-1/3"
                     whileHover={{ x: 5 }}
                   >
-                    <div className="bg-[#0b0f13] p-6 rounded-2xl border border-cyan-400/20 hover:shadow-neon transition-all">
+                    <div className="bg-[color:var(--card)] p-6 rounded-2xl border border-[color:var(--border)] transition-all">
                       <h3 className="text-2xl font-semibold text-white mb-2 heading-neon">
                         {exp.title}
                       </h3>
-                      <p className="text-cyan-300 font-medium">
+                      <p className="text-slate-200 font-medium">
                         {exp.company}
                       </p>
-                      <p className="text-slate-300 mt-3 flex items-center">
-                        <svg className="w-5 h-5 mr-2 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <p className="text-slate-300/90 mt-3 flex items-center">
+                        <svg className="w-5 h-5 mr-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                         {exp.period}
@@ -121,8 +121,8 @@ const Experience = () => {
                     className="md:w-2/3"
                     whileHover={{ x: -5 }}
                   >
-                    <div className="bg-[#0b0f13] p-8 rounded-2xl border border-cyan-400/20 hover:shadow-neon transition-all">
-                      <p className="text-slate-300 text-lg leading-relaxed mb-6">
+                    <div className="bg-[color:var(--card)] p-8 rounded-2xl border border-[color:var(--border)] transition-all">
+                      <p className="text-slate-300/90 text-lg leading-relaxed mb-6">
                         {exp.description}
                       </p>
                       <div className="flex flex-wrap gap-3">
@@ -130,7 +130,7 @@ const Experience = () => {
                           <motion.span
                             key={skillIndex}
                             whileHover={{ scale: 1.05 }}
-                            className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border border-cyan-400/20 text-cyan-200 bg-cyan-400/5 hover:bg-cyan-400/10"
+                            className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border border-[color:var(--border)] text-slate-200 bg-white/5 hover:bg-white/10"
                           >
                             {skill}
                           </motion.span>
@@ -140,7 +140,7 @@ const Experience = () => {
                   </motion.div>
                 </div>
                 {index < experiences.length - 1 && (
-                  <div className="hidden md:block absolute left-1/3 top-full w-0.5 h-16 bg-[linear-gradient(180deg,#00e5ff,#ff2bd6)]" />
+                  <div className="hidden md:block absolute left-1/3 top-full w-0.5 h-16 bg-[color:var(--border)]" />
                 )}
               </motion.div>
             ))}
